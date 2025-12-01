@@ -1,0 +1,668 @@
+[
+    {
+        "maxGrade": 100,
+        "minGrade": 100,
+        "weight": 1.0,
+        "gpaValue": 4.000
+    },
+    {
+        "maxGrade": 100,
+        "minGrade": 100,
+        "weight": 1.1,
+        "gpaValue": 4.400
+    },
+    {
+        "maxGrade": 100,
+        "minGrade": 100,
+        "weight": 1.2,
+        "gpaValue": 4.800
+    },
+    {
+        "maxGrade": 99,
+        "minGrade": 99,
+        "weight": 1.0,
+        "gpaValue": 3.933
+    },
+    {
+        "maxGrade": 99,
+        "minGrade": 99,
+        "weight": 1.1,
+        "gpaValue": 4.326
+    },
+    {
+        "maxGrade": 99,
+        "minGrade": 99,
+        "weight": 1.2,
+        "gpaValue": 4.720
+    },
+    {
+        "maxGrade": 98,
+        "minGrade": 98,
+        "weight": 1.0,
+        "gpaValue": 3.867
+    },
+    {
+        "maxGrade": 98,
+        "minGrade": 98,
+        "weight": 1.1,
+        "gpaValue": 4.254
+    },
+    {
+        "maxGrade": 98,
+        "minGrade": 98,
+        "weight": 1.2,
+        "gpaValue": 4.640
+    },
+    {
+        "maxGrade": 97,
+        "minGrade": 97,
+        "weight": 1.0,
+        "gpaValue": 3.800
+    },
+    {
+        "maxGrade": 97,
+        "minGrade": 97,
+        "weight": 1.1,
+        "gpaValue": 4.180
+    },
+    {
+        "maxGrade": 97,
+        "minGrade": 97,
+        "weight": 1.2,
+        "gpaValue": 4.560
+    },
+    {
+        "maxGrade": 96,
+        "minGrade": 96,
+        "weight": 1.0,
+        "gpaValue": 3.733
+    },
+    {
+        "maxGrade": 96,
+        "minGrade": 96,
+        "weight": 1.1,
+        "gpaValue": 4.106
+    },
+    {
+        "maxGrade": 96,
+        "minGrade": 96,
+        "weight": 1.2,
+        "gpaValue": 4.480
+    },
+    {
+        "maxGrade": 95,
+        "minGrade": 95,
+        "weight": 1.0,
+        "gpaValue": 3.667
+    },
+    {
+        "maxGrade": 95,
+        "minGrade": 95,
+        "weight": 1.1,
+        "gpaValue": 4.034
+    },
+    {
+        "maxGrade": 95,
+        "minGrade": 95,
+        "weight": 1.2,
+        "gpaValue": 4.400
+    },
+    {
+        "maxGrade": 94,
+        "minGrade": 94,
+        "weight": 1.0,
+        "gpaValue": 3.600
+    },
+    {
+        "maxGrade": 94,
+        "minGrade": 94,
+        "weight": 1.1,
+        "gpaValue": 3.960
+    },
+    {
+        "maxGrade": 94,
+        "minGrade": 94,
+        "weight": 1.2,
+        "gpaValue": 4.320
+    },
+    {
+        "maxGrade": 93,
+        "minGrade": 93,
+        "weight": 1.0,
+        "gpaValue": 3.533
+    },
+    {
+        "maxGrade": 93,
+        "minGrade": 93,
+        "weight": 1.1,
+        "gpaValue": 3.886
+    },
+    {
+        "maxGrade": 93,
+        "minGrade": 93,
+        "weight": 1.2,
+        "gpaValue": 4.240
+    },
+    {
+        "maxGrade": 92,
+        "minGrade": 92,
+        "weight": 1.0,
+        "gpaValue": 3.467
+    },
+    {
+        "maxGrade": 92,
+        "minGrade": 92,
+        "weight": 1.1,
+        "gpaValue": 3.814
+    },
+    {
+        "maxGrade": 92,
+        "minGrade": 92,
+        "weight": 1.2,
+        "gpaValue": 4.160
+    },
+    {
+        "maxGrade": 91,
+        "minGrade": 91,
+        "weight": 1.0,
+        "gpaValue": 3.400
+    },
+    {
+        "maxGrade": 91,
+        "minGrade": 91,
+        "weight": 1.1,
+        "gpaValue": 3.740
+    },
+    {
+        "maxGrade": 91,
+        "minGrade": 91,
+        "weight": 1.2,
+        "gpaValue": 4.080
+    },
+    {
+        "maxGrade": 90,
+        "minGrade": 90,
+        "weight": 1.0,
+        "gpaValue": 3.333
+    },
+    {
+        "maxGrade": 90,
+        "minGrade": 90,
+        "weight": 1.1,
+        "gpaValue": 3.666
+    },
+    {
+        "maxGrade": 90,
+        "minGrade": 90,
+        "weight": 1.2,
+        "gpaValue": 4.000
+    },
+    {
+        "maxGrade": 89,
+        "minGrade": 89,
+        "weight": 1.0,
+        "gpaValue": 3.267
+    },
+    {
+        "maxGrade": 89,
+        "minGrade": 89,
+        "weight": 1.1,
+        "gpaValue": 3.594
+    },
+    {
+        "maxGrade": 89,
+        "minGrade": 89,
+        "weight": 1.2,
+        "gpaValue": 3.920
+    },
+    {
+        "maxGrade": 88,
+        "minGrade": 88,
+        "weight": 1.0,
+        "gpaValue": 3.200
+    },
+    {
+        "maxGrade": 88,
+        "minGrade": 88,
+        "weight": 1.1,
+        "gpaValue": 3.520
+    },
+    {
+        "maxGrade": 88,
+        "minGrade": 88,
+        "weight": 1.2,
+        "gpaValue": 3.840
+    },
+    {
+        "maxGrade": 87,
+        "minGrade": 87,
+        "weight": 1.0,
+        "gpaValue": 3.133
+    },
+    {
+        "maxGrade": 87,
+        "minGrade": 87,
+        "weight": 1.1,
+        "gpaValue": 3.446
+    },
+    {
+        "maxGrade": 87,
+        "minGrade": 87,
+        "weight": 1.2,
+        "gpaValue": 3.760
+    },
+    {
+        "maxGrade": 86,
+        "minGrade": 86,
+        "weight": 1.0,
+        "gpaValue": 3.067
+    },
+    {
+        "maxGrade": 86,
+        "minGrade": 86,
+        "weight": 1.1,
+        "gpaValue": 3.374
+    },
+    {
+        "maxGrade": 86,
+        "minGrade": 86,
+        "weight": 1.2,
+        "gpaValue": 3.680
+    },
+    {
+        "maxGrade": 85,
+        "minGrade": 85,
+        "weight": 1.0,
+        "gpaValue": 3.000
+    },
+    {
+        "maxGrade": 85,
+        "minGrade": 85,
+        "weight": 1.1,
+        "gpaValue": 3.300
+    },
+    {
+        "maxGrade": 85,
+        "minGrade": 85,
+        "weight": 1.2,
+        "gpaValue": 3.600
+    },
+    {
+        "maxGrade": 84,
+        "minGrade": 84,
+        "weight": 1.0,
+        "gpaValue": 2.900
+    },
+    {
+        "maxGrade": 84,
+        "minGrade": 84,
+        "weight": 1.1,
+        "gpaValue": 3.190
+    },
+    {
+        "maxGrade": 84,
+        "minGrade": 84,
+        "weight": 1.2,
+        "gpaValue": 3.480
+    },
+    {
+        "maxGrade": 83,
+        "minGrade": 83,
+        "weight": 1.0,
+        "gpaValue": 2.800
+    },
+    {
+        "maxGrade": 83,
+        "minGrade": 83,
+        "weight": 1.1,
+        "gpaValue": 3.080
+    },
+    {
+        "maxGrade": 83,
+        "minGrade": 83,
+        "weight": 1.2,
+        "gpaValue": 3.360
+    },
+    {
+        "maxGrade": 82,
+        "minGrade": 82,
+        "weight": 1.0,
+        "gpaValue": 2.700
+    },
+    {
+        "maxGrade": 82,
+        "minGrade": 82,
+        "weight": 1.1,
+        "gpaValue": 2.970
+    },
+    {
+        "maxGrade": 82,
+        "minGrade": 82,
+        "weight": 1.2,
+        "gpaValue": 3.240
+    },
+    {
+        "maxGrade": 81,
+        "minGrade": 81,
+        "weight": 1.0,
+        "gpaValue": 2.600
+    },
+    {
+        "maxGrade": 81,
+        "minGrade": 81,
+        "weight": 1.1,
+        "gpaValue": 2.860
+    },
+    {
+        "maxGrade": 81,
+        "minGrade": 81,
+        "weight": 1.2,
+        "gpaValue": 3.120
+    },
+    {
+        "maxGrade": 80,
+        "minGrade": 80,
+        "weight": 1.0,
+        "gpaValue": 2.500
+    },
+    {
+        "maxGrade": 80,
+        "minGrade": 80,
+        "weight": 1.1,
+        "gpaValue": 2.750
+    },
+    {
+        "maxGrade": 80,
+        "minGrade": 80,
+        "weight": 1.2,
+        "gpaValue": 3.000
+    },
+    {
+        "maxGrade": 79,
+        "minGrade": 79,
+        "weight": 1.0,
+        "gpaValue": 2.400
+    },
+    {
+        "maxGrade": 79,
+        "minGrade": 79,
+        "weight": 1.1,
+        "gpaValue": 2.640
+    },
+    {
+        "maxGrade": 79,
+        "minGrade": 79,
+        "weight": 1.2,
+        "gpaValue": 2.880
+    },
+    {
+        "maxGrade": 78,
+        "minGrade": 78,
+        "weight": 1.0,
+        "gpaValue": 2.300
+    },
+    {
+        "maxGrade": 78,
+        "minGrade": 78,
+        "weight": 1.1,
+        "gpaValue": 2.530
+    },
+    {
+        "maxGrade": 78,
+        "minGrade": 78,
+        "weight": 1.2,
+        "gpaValue": 2.760
+    },
+    {
+        "maxGrade": 77,
+        "minGrade": 77,
+        "weight": 1.0,
+        "gpaValue": 2.200
+    },
+    {
+        "maxGrade": 77,
+        "minGrade": 77,
+        "weight": 1.1,
+        "gpaValue": 2.420
+    },
+    {
+        "maxGrade": 77,
+        "minGrade": 77,
+        "weight": 1.2,
+        "gpaValue": 2.640
+    },
+    {
+        "maxGrade": 76,
+        "minGrade": 76,
+        "weight": 1.0,
+        "gpaValue": 2.100
+    },
+    {
+        "maxGrade": 76,
+        "minGrade": 76,
+        "weight": 1.1,
+        "gpaValue": 2.310
+    },
+    {
+        "maxGrade": 76,
+        "minGrade": 76,
+        "weight": 1.2,
+        "gpaValue": 2.520
+    },
+    {
+        "maxGrade": 75,
+        "minGrade": 75,
+        "weight": 1.0,
+        "gpaValue": 2.000
+    },
+    {
+        "maxGrade": 75,
+        "minGrade": 75,
+        "weight": 1.1,
+        "gpaValue": 2.200
+    },
+    {
+        "maxGrade": 75,
+        "minGrade": 75,
+        "weight": 1.2,
+        "gpaValue": 2.400
+    },
+    {
+        "maxGrade": 74,
+        "minGrade": 74,
+        "weight": 1.0,
+        "gpaValue": 1.900
+    },
+    {
+        "maxGrade": 74,
+        "minGrade": 74,
+        "weight": 1.1,
+        "gpaValue": 2.090
+    },
+    {
+        "maxGrade": 74,
+        "minGrade": 74,
+        "weight": 1.2,
+        "gpaValue": 2.280
+    },
+    {
+        "maxGrade": 73,
+        "minGrade": 73,
+        "weight": 1.0,
+        "gpaValue": 1.800
+    },
+    {
+        "maxGrade": 73,
+        "minGrade": 73,
+        "weight": 1.1,
+        "gpaValue": 1.980
+    },
+    {
+        "maxGrade": 73,
+        "minGrade": 73,
+        "weight": 1.2,
+        "gpaValue": 2.160
+    },
+    {
+        "maxGrade": 72,
+        "minGrade": 72,
+        "weight": 1.0,
+        "gpaValue": 1.700
+    },
+    {
+        "maxGrade": 72,
+        "minGrade": 72,
+        "weight": 1.1,
+        "gpaValue": 1.870
+    },
+    {
+        "maxGrade": 72,
+        "minGrade": 72,
+        "weight": 1.2,
+        "gpaValue": 2.040
+    },
+    {
+        "maxGrade": 71,
+        "minGrade": 71,
+        "weight": 1.0,
+        "gpaValue": 1.600
+    },
+    {
+        "maxGrade": 71,
+        "minGrade": 71,
+        "weight": 1.1,
+        "gpaValue": 1.760
+    },
+    {
+        "maxGrade": 71,
+        "minGrade": 71,
+        "weight": 1.2,
+        "gpaValue": 1.920
+    },
+    {
+        "maxGrade": 70,
+        "minGrade": 70,
+        "weight": 1.0,
+        "gpaValue": 1.500
+    },
+    {
+        "maxGrade": 70,
+        "minGrade": 70,
+        "weight": 1.1,
+        "gpaValue": 1.650
+    },
+    {
+        "maxGrade": 70,
+        "minGrade": 70,
+        "weight": 1.2,
+        "gpaValue": 1.800
+    },
+    {
+        "maxGrade": 69,
+        "minGrade": 69,
+        "weight": 1.0,
+        "gpaValue": 1.400
+    },
+    {
+        "maxGrade": 69,
+        "minGrade": 69,
+        "weight": 1.1,
+        "gpaValue": 1.540
+    },
+    {
+        "maxGrade": 69,
+        "minGrade": 69,
+        "weight": 1.2,
+        "gpaValue": 1.680
+    },
+    {
+        "maxGrade": 68,
+        "minGrade": 68,
+        "weight": 1.0,
+        "gpaValue": 1.300
+    },
+    {
+        "maxGrade": 68,
+        "minGrade": 68,
+        "weight": 1.1,
+        "gpaValue": 1.430
+    },
+    {
+        "maxGrade": 68,
+        "minGrade": 68,
+        "weight": 1.2,
+        "gpaValue": 1.560
+    },
+    {
+        "maxGrade": 67,
+        "minGrade": 67,
+        "weight": 1.0,
+        "gpaValue": 1.200
+    },
+    {
+        "maxGrade": 67,
+        "minGrade": 67,
+        "weight": 1.1,
+        "gpaValue": 1.320
+    },
+    {
+        "maxGrade": 67,
+        "minGrade": 67,
+        "weight": 1.2,
+        "gpaValue": 1.440
+    },
+    {
+        "maxGrade": 66,
+        "minGrade": 66,
+        "weight": 1.0,
+        "gpaValue": 1.100
+    },
+    {
+        "maxGrade": 66,
+        "minGrade": 66,
+        "weight": 1.1,
+        "gpaValue": 1.210
+    },
+    {
+        "maxGrade": 66,
+        "minGrade": 66,
+        "weight": 1.2,
+        "gpaValue": 1.320
+    },
+    {
+        "maxGrade": 65,
+        "minGrade": 65,
+        "weight": 1.0,
+        "gpaValue": 1.000
+    },
+    {
+        "maxGrade": 65,
+        "minGrade": 65,
+        "weight": 1.1,
+        "gpaValue": 1.100
+    },
+    {
+        "maxGrade": 65,
+        "minGrade": 65,
+        "weight": 1.2,
+        "gpaValue": 1.200
+    },
+    {
+        "maxGrade": 64,
+        "minGrade": 0,
+        "weight": 1.0,
+        "gpaValue": 0.000
+    },
+    {
+        "maxGrade": 64,
+        "minGrade": 0,
+        "weight": 1.1,
+        "gpaValue": 0.000
+    },
+    {
+        "maxGrade": 64,
+        "minGrade": 0,
+        "weight": 1.2,
+        "gpaValue": 0.000
+    }
+]
