@@ -5,31 +5,25 @@ import ClassInput from "@/components/ClassInput";
 import ClassList from "@/components/ClassList";
 import GPADisplay from "@/components/GPADisplay";
 import Link from "next/link";
-import { ClassItem } from "@/types";
 import Card from "@/components/ui/Card";
+import { useGPA } from "@/hooks/useGPA";
+
+import EditClassModal from "@/components/EditClassModal";
+import GroupedGPAView from "@/components/GroupedGPAView";
+
 
 export default function HomePage() {
-  const [classes, setClasses] = useState<ClassItem[]>([]);
+  const { classes, addClass, deleteClass, editClass } = useGPA();
 
-  // Handle adding a class
-  function handleAddClass(newClass: ClassItem) {
-    setClasses((prev) => [...prev, newClass]);
-  }
+  const [editingId, setEditingId] = useState<string | null>(null);
 
-  // Handle deleting a class
-  function handleDeleteClass(id: string) {
-    setClasses((prev) => prev.filter((cls) => cls.id !== id));
-  }
-
-  // Handle editing a class (future: modal or inline editor)
-  function handleEditClass(id: string) {
-    alert("Editing is coming soon!"); // placeholder
-  }
+  const classBeingEdited = classes.find((c) => c.id === editingId) || null;
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-100 via-blue-100 to-green-100 py-10 px-4">
       <div className="max-w-5xl mx-auto space-y-10">
-        {/* TITLE */}
+
+        {/* HEADER */}
         <Card className="text-center bg-white border-purple-300 shadow">
           <h1 className="text-4xl font-extrabold text-purple-700">
             School GPA Calculator
@@ -38,7 +32,6 @@ export default function HomePage() {
             Enter your classes to calculate both school and standardized GPAs.
           </p>
 
-          {/* GPA Chart Link */}
           <div className="mt-4">
             <Link
               href="/gpa-chart"
@@ -49,19 +42,28 @@ export default function HomePage() {
           </div>
         </Card>
 
-        {/* CLASS INPUT */}
-        <ClassInput onAdd={handleAddClass} />
+        <ClassInput onAdd={addClass} />
 
-        {/* GPA SUMMARY */}
         <GPADisplay classes={classes} />
 
-        {/* CLASS LIST */}
+        <GroupedGPAView classes={classes} />
+        
         <ClassList
           classes={classes}
-          onDelete={handleDeleteClass}
-          onEdit={handleEditClass}
+          onDelete={deleteClass}
+          onEdit={(id) => setEditingId(id)}
         />
+
+
       </div>
+
+      {/* EDIT MODAL */}
+      <EditClassModal
+        isOpen={editingId !== null}
+        onClose={() => setEditingId(null)}
+        classItem={classBeingEdited}
+        onSave={editClass}
+      />
     </main>
   );
 }

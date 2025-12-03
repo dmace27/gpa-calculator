@@ -8,7 +8,8 @@ import { ClassItem } from "@/types";
 interface ClassListProps {
   classes: ClassItem[];
   onDelete: (id: string) => void;
-  onEdit: (id: string) => void; // editing handled by parent page or modal
+  // allow callers to pass either a simple (id) handler or the full edit signature
+  onEdit: (id: string, updatedFields?: Partial<ClassItem>) => void;
 }
 
 export default function ClassList({
@@ -33,6 +34,8 @@ export default function ClassList({
       <table className="min-w-full border-collapse rounded-xl overflow-hidden shadow-sm">
         <thead>
           <tr className="bg-green-200 text-green-900 font-semibold">
+            <th className="px-4 py-2 text-left">Year</th>
+            <th className="px-4 py-2 text-left">Semester</th>
             <th className="px-4 py-2 text-left">Class</th>
             <th className="px-4 py-2 text-left">Grade</th>
             <th className="px-4 py-2 text-left">Weight</th>
@@ -42,7 +45,8 @@ export default function ClassList({
             <th className="px-4 py-2 text-left">Std UW</th>
             <th className="px-4 py-2 text-left">Actions</th>
           </tr>
-        </thead>
+      </thead>
+
 
         <tbody>
           {classes.map((cls) => (
@@ -50,44 +54,35 @@ export default function ClassList({
               key={cls.id}
               className="odd:bg-white even:bg-green-100 border-b border-green-300"
             >
+              {/* NEW: YEAR + SEMESTER */}
+              <td className="px-4 py-3">
+                {cls.year !== undefined ? cls.year : "—"}
+              </td>
+
+              <td className="px-4 py-3">
+                {cls.semester !== undefined ? cls.semester : "—"}
+              </td>
+
+              {/* EXISTING FIELDS */}
               <td className="px-4 py-3 font-medium">{cls.name}</td>
               <td className="px-4 py-3">{cls.grade}</td>
-              <td className="px-4 py-3">{cls.weightKey.toFixed(1)}</td>
-
-              {/* GPA Values */}
               <td className="px-4 py-3">
-                {cls.schoolWeightedGPA?.toFixed(3)}
-              </td>
-              <td className="px-4 py-3">
-                {cls.schoolUnweightedGPA?.toFixed(3)}
-              </td>
-              <td className="px-4 py-3">
-                {cls.standardizedWeightedGPA?.toFixed(3)}
-              </td>
-              <td className="px-4 py-3">
-                {cls.standardizedUnweightedGPA?.toFixed(3)}
+                {cls.weightKey?.toString?.()}
               </td>
 
-              {/* Actions */}
+              <td className="px-4 py-3">{cls.schoolWeightedGPA?.toFixed(3)}</td>
+              <td className="px-4 py-3">{cls.schoolUnweightedGPA?.toFixed(3)}</td>
+              <td className="px-4 py-3">{cls.standardizedWeightedGPA?.toFixed(3)}</td>
+              <td className="px-4 py-3">{cls.standardizedUnweightedGPA?.toFixed(3)}</td>
+
               <td className="px-4 py-3 space-x-2 whitespace-nowrap">
-                <Button
-                  variant="secondary"
-                  onClick={() => onEdit(cls.id)}
-                  className="text-sm px-3 py-1"
-                >
-                  Edit
-                </Button>
-                <Button
-                  variant="danger"
-                  onClick={() => onDelete(cls.id)}
-                  className="text-sm px-3 py-1"
-                >
-                  Delete
-                </Button>
+                <Button variant="secondary" onClick={() => onEdit(cls.id)}>Edit</Button>
+                <Button variant="danger" onClick={() => onDelete(cls.id)}>Delete</Button>
               </td>
             </tr>
           ))}
         </tbody>
+
       </table>
     </Card>
   );

@@ -60,15 +60,19 @@ export function useGPA() {
    * Edit an existing class
    * (We merge fields, then recalc GPA)
    */
-  function editClass(id: string, updatedFields: Partial<ClassItem>) {
-    setClasses((prev) =>
-      prev.map((cls) =>
-        cls.id === id
-          ? enrichClassGPA({ ...cls, ...updatedFields })
-          : cls
-      )
-    );
-  }
+  function editClass(id: string, updatedFields?: Partial<ClassItem>) {
+  setClasses((prev) =>
+    prev.map((cls) =>
+      cls.id === id
+        ? enrichClassGPA({
+            ...cls,
+            ...(updatedFields ?? {}), // avoid merging undefined
+          })
+        : cls
+    )
+  );
+}
+
 
   /**
    * Clear all data (reset)

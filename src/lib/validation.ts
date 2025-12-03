@@ -72,3 +72,15 @@ export function validateClassList(classes: {
    
    return true;
 }
+
+export function validateYear(year: string | number) {
+  if (!year) return "Please select a year.";
+  if (![9,10,11,12].includes(Number(year))) return "Invalid year.";
+  return null;
+}
+
+export function validateSemester(sem: string | number) {
+  if (!sem) return "Please select a semester.";
+  if (![1,2].includes(Number(sem))) return "Invalid semester.";
+  return null;
+}

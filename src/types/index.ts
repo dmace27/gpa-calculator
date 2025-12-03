@@ -2,7 +2,7 @@ export interface ClassItem {
   id: string;            // uuid
   name: string;
   grade: number;         // 0-100
-  weightKey: number;     // e.g. "Unweighted" or "AP" or "1.0"
+  weightKey: string;     // e.g. "Unweighted" or "AP" or "1.0"
   semester?: number;      // optional: 1..n to group
   year?: number;          // optional
 
