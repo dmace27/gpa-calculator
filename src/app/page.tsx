@@ -26,7 +26,7 @@ export default function HomePage() {
         {/* HEADER */}
         <Card className="text-center bg-white border-purple-300 shadow">
           <h1 className="text-4xl font-extrabold text-purple-700">
-            School GPA Calculator
+            Central York High School GPA Calculator
           </h1>
           <p className="text-gray-600 mt-2">
             Enter your classes to calculate both school and standardized GPAs.
@@ -37,7 +37,7 @@ export default function HomePage() {
               href="/gpa-chart"
               className="inline-block bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl shadow transition"
             >
-              View GPA Conversion Chart
+              About GPA Formulas
             </Link>
           </div>
         </Card>
@@ -47,13 +47,12 @@ export default function HomePage() {
         <GPADisplay classes={classes} />
 
         <GroupedGPAView classes={classes} />
-        
+
         <ClassList
           classes={classes}
           onDelete={deleteClass}
           onEdit={(id) => setEditingId(id)}
         />
-
 
       </div>
 

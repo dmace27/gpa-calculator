@@ -82,7 +82,7 @@ export default function ClassInput({ onAdd }: ClassInputProps) {
 
         {/* GRADE */}
         <Input
-          label="Grade (0–100)"
+          label="Grade (0 - 100)"
           type="number"
           value={grade}
           onChange={(e) => setGrade(e.target.value)}
@@ -93,7 +93,7 @@ export default function ClassInput({ onAdd }: ClassInputProps) {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {/* WEIGHT */}
         <Select
-          label="Weight"
+          label="Weighting"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
           error={weightError}
