@@ -14,6 +14,55 @@ interface GroupedGPAViewProps {
  * GroupedGPAView
  * Renders all years and their semesters simultaneously.
  */
+function GPABar({
+  gpa,
+  size = "normal", // "normal" or "large"
+}: {
+  gpa: ReturnType<typeof calculateGroupGPA>;
+  size?: "normal" | "large";
+}) {
+  // Adjust sizes based on mode
+  const labelClass =
+    size === "large"
+      ? "text-lg text-gray-700 whitespace-nowrap"
+      : "text-xs text-gray-600 whitespace-nowrap";
+
+  const valueClass =
+    size === "large"
+      ? "text-4xl font-extrabold text-purple-700 leading-tight"
+      : "text-xl font-bold text-purple-700 leading-tight";
+
+  const boxHeight = size === "large" ? "min-h-[80px]" : "min-h-[70px]";
+
+  return (
+    <div className="w-full bg-purple-100 border border-purple-300 rounded-xl p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+
+        {[
+          { label: "School Weighted", value: gpa.schoolWeightedGPA },
+          { label: "School Unweighted", value: gpa.schoolUnweightedGPA },
+          { label: "Std Weighted", value: gpa.standardizedWeightedGPA },
+          { label: "Std Unweighted", value: gpa.standardizedUnweightedGPA },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className={`
+              flex flex-col items-center justify-center 
+              ${boxHeight}
+            `}
+          >
+            <p className={labelClass}>{item.label}</p>
+            <p className={valueClass}>{item.value.toFixed(3)}</p>
+          </div>
+        ))}
+
+      </div>
+    </div>
+  );
+}
+
+
+
 export default function GroupedGPAView({ classes }: GroupedGPAViewProps) {
   if (!classes || classes.length === 0) return null;
 
@@ -62,35 +111,8 @@ export default function GroupedGPAView({ classes }: GroupedGPAViewProps) {
                       Semester {sem} Summary
                     </h3>
 
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <p className="font-semibold text-gray-700">School Weighted:</p>
-                        <p className="text-gray-900">
-                          {gpa.schoolWeightedGPA.toFixed(3)}
-                        </p>
-                      </div>
+                    <GPABar gpa={gpa} />
 
-                      <div>
-                        <p className="font-semibold text-gray-700">School Unweighted:</p>
-                        <p className="text-gray-900">
-                          {gpa.schoolUnweightedGPA.toFixed(3)}
-                        </p>
-                      </div>
-
-                      <div>
-                        <p className="font-semibold text-gray-700">Std Weighted:</p>
-                        <p className="text-gray-900">
-                          {gpa.standardizedWeightedGPA.toFixed(3)}
-                        </p>
-                      </div>
-
-                      <div>
-                        <p className="font-semibold text-gray-700">Std Unweighted:</p>
-                        <p className="text-gray-900">
-                          {gpa.standardizedUnweightedGPA.toFixed(3)}
-                        </p>
-                      </div>
-                    </div>
 
                     {/* Table of classes */}
                     <table className="w-full border-collapse text-sm mt-2">
@@ -125,15 +147,18 @@ export default function GroupedGPAView({ classes }: GroupedGPAViewProps) {
             </div>
 
             {/* YEAR SUMMARY: combine all semester classes for the year */}
-            <Card className="bg-purple-50 border-purple-400 shadow p-4 space-y-4">
-              <h3 className="text-2xl font-bold text-purple-800">
-                Year Summary
-              </h3>
+            <Card className="bg-purple-50 border-purple-300 shadow p-4 space-y-3">
+              <h3 className="text-xl font-bold text-purple-800">Year Summary</h3>
 
-              <GPADisplay
-                classes={sortedSemesters.flatMap((sem) => semestersMap[sem] ?? [])}
+              <GPABar
+                size="large"
+                gpa={calculateGroupGPA(
+                  sortedSemesters.flatMap((sem) => semestersMap[sem] ?? [])
+                )}
               />
+
             </Card>
+
           </Card>
         );
       })}

@@ -13,6 +13,55 @@ export default function GPADisplay({ classes }: GPADisplayProps) {
     return null; // hide until classes exist
   }
 
+  function GPABarGreen({
+  gpa,
+  size = "large",
+}: {
+  gpa: {
+    schoolWeightedGPA: number;
+    schoolUnweightedGPA: number;
+    standardizedWeightedGPA: number;
+    standardizedUnweightedGPA: number;
+  };
+  size?: "normal" | "large";
+}) {
+  const labelClass =
+    size === "large"
+      ? "text-sm text-gray-700 whitespace-nowrap"
+      : "text-xs text-gray-600 whitespace-nowrap";
+
+  const valueClass =
+    size === "large"
+      ? "text-2xl font-extrabold text-green-700 leading-tight"
+      : "text-xl font-bold text-green-700 leading-tight";
+
+  const boxHeight = size === "large" ? "min-h-[90px]" : "min-h-[70px]";
+
+  return (
+    <div className="w-full bg-green-100 border border-green-300 rounded-xl p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+
+        {[
+          { label: "School Weighted", value: gpa.schoolWeightedGPA },
+          { label: "School Unweighted", value: gpa.schoolUnweightedGPA },
+          { label: "Std Weighted", value: gpa.standardizedWeightedGPA },
+          { label: "Std Unweighted", value: gpa.standardizedUnweightedGPA },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className={`flex flex-col items-center justify-center ${boxHeight}`}
+          >
+            <p className={labelClass}>{item.label}</p>
+            <p className={valueClass}>{item.value.toFixed(3)}</p>
+          </div>
+        ))}
+
+      </div>
+    </div>
+  );
+}
+
+
   // Compute overall averages
   const schoolWeightedAvg =
     classes.reduce((acc, c) => acc + (c.schoolWeightedGPA ?? 0), 0) /
@@ -31,46 +80,21 @@ export default function GPADisplay({ classes }: GPADisplayProps) {
     classes.length;
 
   return (
-    <Card className="w-full max-w-2xl mx-auto mt-8 bg-yellow-50 border-yellow-200">
-      <h2 className="text-xl font-bold text-yellow-700 mb-4">
-        Overall GPA Summary
-      </h2>
+  <Card className="w-full max-w-3xl mx-auto mt-8 bg-green-50 border-green-200 p-6 space-y-4">
+    <h2 className="text-2xl font-bold text-green-800">
+      Overall GPA Summary
+    </h2>
 
-      <div className="grid grid-cols-2 gap-6 text-center">
-        {/* School Weighted */}
-        <div className="bg-white rounded-xl p-4 shadow border border-yellow-300">
-          <p className="font-semibold text-yellow-700">School Weighted</p>
-          <p className="text-2xl font-bold text-yellow-900">
-            {schoolWeightedAvg.toFixed(3)}
-          </p>
-        </div>
+    <GPABarGreen
+      gpa={{
+        schoolWeightedGPA: schoolWeightedAvg,
+        schoolUnweightedGPA: schoolUnweightedAvg,
+        standardizedWeightedGPA: standardizedWeightedAvg,
+        standardizedUnweightedGPA: standardizedUnweightedAvg,
+      }}
+      size="large"
+    />
+  </Card>
+);
 
-        {/* School Unweighted */}
-        <div className="bg-white rounded-xl p-4 shadow border border-yellow-300">
-          <p className="font-semibold text-yellow-700">School Unweighted</p>
-          <p className="text-2xl font-bold text-yellow-900">
-            {schoolUnweightedAvg.toFixed(3)}
-          </p>
-        </div>
-
-        {/* Standardized Weighted */}
-        <div className="bg-white rounded-xl p-4 shadow border border-yellow-300">
-          <p className="font-semibold text-yellow-700">Standardized Weighted</p>
-          <p className="text-2xl font-bold text-yellow-900">
-            {standardizedWeightedAvg.toFixed(3)}
-          </p>
-        </div>
-
-        {/* Standardized Unweighted */}
-        <div className="bg-white rounded-xl p-4 shadow border border-yellow-300">
-          <p className="font-semibold text-yellow-700">
-            Standardized Unweighted
-          </p>
-          <p className="text-2xl font-bold text-yellow-900">
-            {standardizedUnweightedAvg.toFixed(3)}
-          </p>
-        </div>
-      </div>
-    </Card>
-  );
 }

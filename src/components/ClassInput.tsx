@@ -24,6 +24,7 @@ export default function ClassInput({ onAdd }: ClassInputProps) {
 
   const [year, setYear] = useState<string>(""); // freshman, sophomore etc
   const [semester, setSemester] = useState<string>("");
+  const [submitted, setSubmitted] = useState(false);
 
   // Validation errors
   const nameError = validateClassName(name);
@@ -46,26 +47,32 @@ export default function ClassInput({ onAdd }: ClassInputProps) {
   // (same as before — truncated here for clarity)
 
   function handleAdd() {
-    if (!formValid) return;
+  setSubmitted(true);  // <--- show errors after first submit attempt
 
-    const newClass: ClassItem = {
-      id: uuidv4(),
-      name,
-      grade: schoolGradeValue,
-      weightKey: weight,
-      year: Number(year),        // 9,10,11,12
-      semester: Number(semester) // 1 or 2
-    };
+  if (!formValid) return;
 
-    const enriched = enrichClassGPA(newClass);
-    onAdd(enriched);
+  const newClass: ClassItem = {
+    id: uuidv4(),
+    name,
+    grade: schoolGradeValue,
+    weightKey: weight,
+    year: Number(year),
+    semester: Number(semester)
+  };
 
-    setName("");
-    setGrade("");
-    setWeight("1.0");
-    setYear("");
-    setSemester("");
-  }
+  const enriched = enrichClassGPA(newClass);
+  onAdd(enriched);
+
+  // Reset fields
+  setName("");
+  setGrade("");
+  setWeight("1.0");
+  setYear("");
+  setSemester("");
+
+  // Reset validation state
+  setSubmitted(false);
+}
 
   return (
     <Card className="w-full max-w-2xl mx-auto mt-6 space-y-4 bg-purple-50 border-purple-200">
@@ -77,8 +84,9 @@ export default function ClassInput({ onAdd }: ClassInputProps) {
           label="Class Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          error={nameError}
+          error={submitted ? nameError : undefined}
         />
+
 
         {/* GRADE */}
         <Input
@@ -86,7 +94,7 @@ export default function ClassInput({ onAdd }: ClassInputProps) {
           type="number"
           value={grade}
           onChange={(e) => setGrade(e.target.value)}
-          error={gradeError}
+          error={submitted ? nameError : undefined}
         />
       </div>
 
@@ -96,8 +104,9 @@ export default function ClassInput({ onAdd }: ClassInputProps) {
           label="Weighting"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
-          error={weightError}
+          error={submitted ? weightError : undefined}
         >
+
           {getAvailableWeights().map((w) => (
             <option key={w} value={w}>
               {w}
@@ -110,7 +119,7 @@ export default function ClassInput({ onAdd }: ClassInputProps) {
           label="Year"
           value={year}
           onChange={(e) => setYear(e.target.value)}
-          error={yearError ?? undefined}
+          error={submitted ? yearError ?? undefined : undefined}
         >
           <option value="">Select Year</option>
           <option value="9">Freshman</option>
@@ -124,8 +133,9 @@ export default function ClassInput({ onAdd }: ClassInputProps) {
           label="Semester"
           value={semester}
           onChange={(e) => setSemester(e.target.value)}
-          error={semesterError ?? undefined}
+          error={submitted ? semesterError ?? undefined : undefined}
         >
+
           <option value="">Select Semester</option>
           <option value="1">Semester 1</option>
           <option value="2">Semester 2</option>
