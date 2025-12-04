@@ -6,43 +6,37 @@ import { enrichClassGPA } from "@/lib/gpa-calculator";
 
 const STORAGE_KEY = "gpa-classes";
 
-/**
- * useGPA Hook
- * - Manages all class CRUD
- * - Auto-enriches GPA values using mapping
- * - Persists to localStorage
- */
 export function useGPA() {
   const [classes, setClasses] = useState<ClassItem[]>([]);
 
   /**
-   * Load from LocalStorage on first render
+   * Load from localStorage on mount
    */
   useEffect(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed)) {
-          const enriched = parsed.map((c: ClassItem) => enrichClassGPA(c));
-          setClasses(enriched);
-        }
-      }
+      const parsed = JSON.parse(saved);
+
+      // Recalculate GPA for safety
+      const enriched = parsed.map((c: ClassItem) => enrichClassGPA(c));
+
+      setClasses(enriched);
     } catch (err) {
-      console.error("Error loading GPA data:", err);
+      console.error("Failed to parse localStorage data:", err);
     }
   }, []);
 
   /**
-   * Save to LocalStorage whenever classes change
+   * Save to localStorage whenever classes change
    */
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(classes));
   }, [classes]);
 
   /**
-   * Add a new class
-   * (We expect a full ClassItem object, including ID + name + grade + weightKey)
+   * Add class
    */
   function addClass(newClass: ClassItem) {
     const enriched = enrichClassGPA(newClass);
@@ -50,32 +44,30 @@ export function useGPA() {
   }
 
   /**
-   * Delete by ID
+   * Delete class
    */
   function deleteClass(id: string) {
     setClasses((prev) => prev.filter((cls) => cls.id !== id));
   }
 
   /**
-   * Edit an existing class
-   * (We merge fields, then recalc GPA)
+   * Edit class
    */
   function editClass(id: string, updatedFields?: Partial<ClassItem>) {
-  setClasses((prev) =>
-    prev.map((cls) =>
-      cls.id === id
-        ? enrichClassGPA({
-            ...cls,
-            ...(updatedFields ?? {}), // avoid merging undefined
-          })
-        : cls
-    )
-  );
-}
-
+    setClasses((prev) =>
+      prev.map((cls) =>
+        cls.id === id
+          ? enrichClassGPA({
+              ...cls,
+              ...(updatedFields ?? {}),
+            })
+          : cls
+      )
+    );
+  }
 
   /**
-   * Clear all data (reset)
+   * Clear all
    */
   function clearAll() {
     setClasses([]);

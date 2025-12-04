@@ -27,12 +27,12 @@ export default function GPADisplay({ classes }: GPADisplayProps) {
 }) {
   const labelClass =
     size === "large"
-      ? "text-sm text-gray-700 whitespace-nowrap"
+      ? "text-lg text-gray-700 whitespace-nowrap"
       : "text-xs text-gray-600 whitespace-nowrap";
 
   const valueClass =
     size === "large"
-      ? "text-2xl font-extrabold text-green-700 leading-tight"
+      ? "text-4xl font-extrabold text-green-700 leading-tight"
       : "text-xl font-bold text-green-700 leading-tight";
 
   const boxHeight = size === "large" ? "min-h-[90px]" : "min-h-[70px]";

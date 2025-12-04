@@ -6,14 +6,14 @@ import ClassList from "@/components/ClassList";
 import GPADisplay from "@/components/GPADisplay";
 import Link from "next/link";
 import Card from "@/components/ui/Card";
-import { useGPA } from "@/hooks/useGPA";
+import { useGPAContext } from "@/context/GPAContext";
 
 import EditClassModal from "@/components/EditClassModal";
 import GroupedGPAView from "@/components/GroupedGPAView";
 
 
 export default function HomePage() {
-  const { classes, addClass, deleteClass, editClass } = useGPA();
+  const { classes, addClass, deleteClass, editClass } = useGPAContext();
 
   const [editingId, setEditingId] = useState<string | null>(null);
 

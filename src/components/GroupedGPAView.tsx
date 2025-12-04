@@ -85,7 +85,8 @@ export default function GroupedGPAView({ classes }: GroupedGPAViewProps) {
 
         return (
           <Card
-            key={year}
+           id={`year-${year}`} 
+           key={year}
             className="border-purple-300 bg-white shadow-lg p-6 space-y-6"
           >
             <h2 className="text-3xl font-bold text-purple-700 mb-4">
