@@ -1,4 +1,3 @@
-// We'll refactor this component to use a collapsible accordion rather than a table.
 import React, { useState } from "react";
 import Button from "./ui/Button";
 import Card from "./ui/Card";
@@ -8,9 +7,15 @@ interface ClassListProps {
   classes: ClassItem[];
   onDelete: (id: string) => void;
   onEdit: (id: string, updatedFields?: Partial<ClassItem>) => void;
+  onClearAll: () => void;   // ⬅ NEW PROP
 }
 
-export default function ClassList({ classes, onDelete, onEdit }: ClassListProps) {
+export default function ClassList({
+  classes,
+  onDelete,
+  onEdit,
+  onClearAll,      // ⬅ NEW PROP
+}: ClassListProps) {
   const [isMainOpen, setIsMainOpen] = useState(true);
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
 
@@ -32,14 +37,32 @@ export default function ClassList({ classes, onDelete, onEdit }: ClassListProps)
 
   return (
     <Card className="mt-6 bg-green-50 border-green-200 p-4">
-      {/* MAIN DROPDOWN */}
-      <button
-        className="w-full text-left text-xl font-bold text-green-700 flex justify-between items-center py-2"
-        onClick={() => setIsMainOpen(!isMainOpen)}
-      >
-        <span>List of All Classes</span>
-        <span>{isMainOpen ? "▾" : "▸"}</span>
-      </button>
+      
+      {/* HEADER BAR WITH DROP DOWN + CLEAR ALL BUTTON */}
+      <div className="flex items-center justify-between w-full">
+        
+        {/* MAIN DROPDOWN BUTTON */}
+        <button
+          className="text-xl font-bold text-green-700 flex items-center space-x-2"
+          onClick={() => setIsMainOpen(!isMainOpen)}
+        >
+          <span>List of All Classes</span>
+          <span>{isMainOpen ? "▾" : "▸"}</span>
+        </button>
+
+        {/* REMOVE ALL BUTTON */}
+        <Button
+          variant="danger"
+          className="px-3 py-1 text-sm bg-red-500 hover:bg-red-600 text-white rounded-lg"
+          onClick={() => {
+            if (confirm("Are you sure you want to remove ALL classes?")) {
+              onClearAll();
+            }
+          }}
+        >
+          Remove All
+        </Button>
+      </div>
 
       {isMainOpen && (
         <div className="mt-4 space-y-4">
@@ -47,6 +70,7 @@ export default function ClassList({ classes, onDelete, onEdit }: ClassListProps)
             const open = openGroups[groupKey] ?? false;
             return (
               <div key={groupKey} className="border border-green-300 rounded-lg bg-white">
+                
                 {/* GROUP HEADER */}
                 <button
                   className="w-full text-left px-4 py-3 bg-green-200 font-semibold text-green-900 flex justify-between items-center"

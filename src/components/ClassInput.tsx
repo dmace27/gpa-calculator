@@ -73,10 +73,11 @@ export default function ClassInput({ onAdd }: ClassInputProps) {
   // Reset validation state
   setSubmitted(false);
 }
-
   return (
-    <Card className="w-full max-w-2xl mx-auto mt-6 space-y-4 bg-purple-50 border-purple-200">
-      <h2 className="text-xl font-bold text-purple-700">Add a Class</h2>
+    <Card className="w-full max-w-3xl mx-auto mt-6 space-y-4 bg-purple-50 border-purple-200">
+      <h2 className="text-2xl text-center font-bold text-purple-700">
+        Enter Info for Each Class
+        </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* CLASS NAME */}

@@ -82,7 +82,7 @@ export default function GPADisplay({ classes }: GPADisplayProps) {
   return (
   <Card className="w-full max-w-3xl mx-auto mt-8 bg-green-50 border-green-200 p-6 space-y-4">
     <h2 className="text-2xl font-bold text-green-800">
-      Overall GPA Summary
+      Cummulative GPA Summary
     </h2>
 
     <GPABarGreen

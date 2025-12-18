@@ -6,10 +6,10 @@ import { ClassItem } from "@/types";
 
 interface GPAContextType {
   classes: ClassItem[];
-  addClass: (newClass: ClassItem) => void;
+  addClass: (c: ClassItem) => void;
   deleteClass: (id: string) => void;
-  editClass: (id: string, updatedFields: Partial<ClassItem>) => void;
-  clearAll: () => void;
+  editClass: (id: string, updated?: Partial<ClassItem>) => void;
+  clearAll: () => void;     
 }
 
 const GPAContext = createContext<GPAContextType | null>(null);
